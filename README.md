@@ -1,5 +1,6 @@
 # 🎓 MyCampusMate
 
+<<<<<<< HEAD
 <div align="center">
 
 ![Anime Visit Counter](https://moe-counter.glitch.me/get/@zenodefault-my_campus_mate7?theme=rule34)
@@ -26,6 +27,26 @@ MyCampusMate is a comprehensive mobile application designed specifically for stu
 - **⏰ Smart Reminders** - Never miss assignments or important dates
 - **📢 Campus Announcements** - Stay updated with latest college news
 
+=======
+**Your All-in-One Campus Companion for MS RIT Students**
+
+MyCampusMate is a comprehensive mobile application designed specifically for students of Ramaiah Institute of Technology (MS RIT). It provides easy access to academic information, attendance tracking, study resources, and campus announcements - all in one convenient app.
+
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+
+## 📱 Features
+
+### 🎯 Core Features
+- **📊 Student Dashboard** - Complete overview of your academic progress
+- **📈 Attendance Tracking** - Real-time attendance percentage and subject-wise breakdown  
+- **📅 Smart Timetable** - Interactive class schedule with notifications
+- **📝 Digital Notes** - Create, organize, and manage study notes
+- **⏰ Smart Reminders** - Never miss assignments or important dates
+- **📢 Campus Announcements** - Stay updated with latest college news
+
+>>>>>>> 79ca5c09ed36ccd613eb47e0bcfb039ff2dabbfa
 ### 🔧 Additional Features
 - **🌙 Dark Mode Support** - Easy on the eyes for extended study sessions
 - **📚 Study Resources** - Quick access to academic materials and references
