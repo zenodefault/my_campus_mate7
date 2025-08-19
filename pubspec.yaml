@@ -35,9 +35,9 @@ dependencies:
   google_fonts: ^6.1.0
   html: ^0.15.6  # For HTML parsing
   # flutter_secure_storage: ^5.0.2  # For secure credential storage
-  cookie_jar: ^3.0.1  # For handling cookies
-  dio: ^4.0.6  # For better HTTP handling
-  dio_cookie_manager: ^2.0.0 
+  cookie_jar: ^4.0.8  # For handling cookies
+  dio: ^5.9.0  # For better HTTP handling
+  dio_cookie_manager: ^3.3.0 
   # google_fonts: ^6.1.0  # Add this line
   # flutter_secure_storage: ^5.0.2
 
@@ -55,7 +55,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
