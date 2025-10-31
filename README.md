@@ -45,7 +45,7 @@ MyCampusMate is a comprehensive mobile application designed specifically for stu
 - **⏰ Smart Reminders** - Never miss assignments or important dates
 - **📢 Campus Announcements** - Stay updated with latest college news
 
->>>>>>> 79ca5c09ed36ccd613eb47e0bcfb039ff2dabbfa
+
 ### 🔧 Additional Features
 - **🌙 Dark Mode Support** - Easy on the eyes for extended study sessions
 - **📚 Study Resources** - Quick access to academic materials and references
