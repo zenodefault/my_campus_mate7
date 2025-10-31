@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../services/backend_service.dart';
 import 'login_screen.dart';
+import '../widgets/glassmorphism_container.dart';
 
 class DashboardScreen extends StatefulWidget {
   final Map<String, dynamic> studentData;
@@ -299,19 +300,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             const SizedBox(height: 15),
             
             // Marks Table
-            Container(
+            GlassmorphismContainer(
               padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Theme.of(context).cardTheme.color,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
-                  ),
-                ],
-              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -344,19 +334,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             const SizedBox(height: 15),
             
             // Attendance Table
-            Container(
+            GlassmorphismContainer(
               padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Theme.of(context).cardTheme.color,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
-                  ),
-                ],
-              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -449,19 +428,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
     required IconData icon,
     required Color color,
   }) {
-    return Container(
+    return GlassmorphismContainer(
       padding: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardTheme.color,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 5),
-          ),
-        ],
-      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

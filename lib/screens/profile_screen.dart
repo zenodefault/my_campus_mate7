@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../services/local_storage_service.dart';
 import '../models/student.dart';
+import '../widgets/glassmorphism_container.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -69,6 +70,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: _loadStudentData,
+            tooltip: 'Refresh Profile Data',
           ),
         ],
       ),
@@ -114,122 +116,126 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Column(
                     children: [
                       // Enhanced Profile Header with Image Support
-                      Container(
-                        padding: const EdgeInsets.all(25),
-                        decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
+                      GlassmorphismContainer(
+                        margin: const EdgeInsets.all(20),
+                        borderRadius: BorderRadius.circular(30),
+                        child: Container(
+                          padding: const EdgeInsets.all(25),
+                          decoration: const BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
                             colors: [
                               Color(0xFF9C27B0),
                               Color(0xFF6A1B9A),
                             ],
                           ),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(40),
-                            bottomRight: Radius.circular(40),
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(40),
+                              bottomRight: Radius.circular(40),
+                            ),
                           ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            // Profile Image Section
-                            Container(
-                              width: 90,
-                              height: 90,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: Colors.white,
-                                  width: 4,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // Profile Image Section
+                              Container(
+                                width: 90,
+                                height: 90,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 4,
+                                  ),
                                 ),
-                              ),
-                              child: _student!.profileImage.isNotEmpty
-                                  ? ClipOval(
-                                      child: Image.network(
-                                        _student!.profileImage,
-                                        fit: BoxFit.cover,
-                                        errorBuilder: (context, error, stackTrace) {
-                                          // Fallback to text avatar if image fails to load
-                                          return Container(
-                                            color: Colors.white,
-                                            child: Center(
-                                              child: Text(
-                                                _student!.name.isNotEmpty 
-                                                    ? _student!.name[0].toUpperCase() 
-                                                    : 'S',
-                                                style: const TextStyle(
-                                                  fontSize: 36,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color(0xFF6A1B9A),
+                                child: _student!.profileImage.isNotEmpty
+                                    ? ClipOval(
+                                        child: Image.network(
+                                          _student!.profileImage,
+                                          fit: BoxFit.cover,
+                                          errorBuilder: (context, error, stackTrace) {
+                                            // Fallback to text avatar if image fails to load
+                                            return Container(
+                                              color: Colors.white,
+                                              child: Center(
+                                                child: Text(
+                                                  _student!.name.isNotEmpty
+                                                      ? _student!.name[0].toUpperCase()
+                                                      : 'S',
+                                                  style: const TextStyle(
+                                                    fontSize: 36,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color(0xFF6A1B9A),
+                                                  ),
                                                 ),
                                               ),
+                                            );
+                                          },
+                                        ),
+                                      )
+                                    : Container(
+                                        // Text avatar when no image URL is provided
+                                        color: Colors.white,
+                                        child: Center(
+                                          child: Text(
+                                            _student!.name.isNotEmpty
+                                                ? _student!.name[0].toUpperCase()
+                                                : 'S',
+                                            style: const TextStyle(
+                                              fontSize: 36,
+                                              fontWeight: FontWeight.bold,
+                                              color: Color(0xFF6A1B9A),
                                             ),
-                                          );
-                                        },
-                                      ),
-                                    )
-                                  : Container(
-                                      // Text avatar when no image URL is provided
-                                      color: Colors.white,
-                                      child: Center(
-                                        child: Text(
-                                          _student!.name.isNotEmpty 
-                                              ? _student!.name[0].toUpperCase() 
-                                              : 'S',
-                                          style: const TextStyle(
-                                            fontSize: 36,
-                                            fontWeight: FontWeight.bold,
-                                            color: Color(0xFF6A1B9A),
                                           ),
                                         ),
                                       ),
-                                    ),
-                            ),
-                            const SizedBox(width: 25),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    _student!.name,
-                                    style: const TextStyle(
-                                      fontSize: 26,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    _student!.email,
-                                    style: const TextStyle(
-                                      fontSize: 17,
-                                      color: Colors.white70,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 12,
-                                      vertical: 6,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    child: Text(
-                                      _student!.rollNumber,
+                              ),
+                              const SizedBox(width: 25),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      _student!.name,
                                       style: const TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 26,
+                                        fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      _student!.email,
+                                      style: const TextStyle(
+                                        fontSize: 17,
+                                        color: Colors.white70,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 12,
+                                        vertical: 6,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white.withOpacity(0.2),
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      child: Text(
+                                        _student!.rollNumber,
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                       
@@ -241,36 +247,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Row(
                           children: [
                             Expanded(
-                              child: Container(
+                              child: GlassmorphismContainer(
                                 padding: const EdgeInsets.all(20),
-                                decoration: BoxDecoration(
-                                  color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
-                                  borderRadius: BorderRadius.circular(18),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: isDarkMode 
-                                          ? Colors.black.withOpacity(0.3) 
-                                          : Colors.purple.withOpacity(0.1),
-                                      blurRadius: 12,
-                                      offset: const Offset(0, 6),
-                                    ),
-                                  ],
-                                ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Container(
                                       padding: const EdgeInsets.all(12),
                                       decoration: BoxDecoration(
-                                        color: isDarkMode 
-                                            ? const Color(0xFF2D4A2D) 
+                                        color: isDarkMode
+                                            ? const Color(0xFF2D4A2D)
                                             : const Color(0xFFE8F5E9),
                                         shape: BoxShape.circle,
                                       ),
-                                      child: const Icon(
+                                      child: Icon(
                                         Icons.percent,
                                         size: 32,
-                                        color: Colors.green,
+                                        color: isDarkMode ? Colors.green[300]! : Colors.green,
                                       ),
                                     ),
                                     const SizedBox(height: 12),
@@ -296,36 +289,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             const SizedBox(width: 15),
                             Expanded(
-                              child: Container(
+                              child: GlassmorphismContainer(
                                 padding: const EdgeInsets.all(20),
-                                decoration: BoxDecoration(
-                                  color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
-                                  borderRadius: BorderRadius.circular(18),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: isDarkMode 
-                                          ? Colors.black.withOpacity(0.3) 
-                                          : Colors.purple.withOpacity(0.1),
-                                      blurRadius: 12,
-                                      offset: const Offset(0, 6),
-                                    ),
-                                  ],
-                                ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Container(
                                       padding: const EdgeInsets.all(12),
                                       decoration: BoxDecoration(
-                                        color: isDarkMode 
-                                            ? const Color(0xFF1A3A5F) 
+                                        color: isDarkMode
+                                            ? const Color(0xFF1A3A5F)
                                             : const Color(0xFFE3F2FD),
                                         shape: BoxShape.circle,
                                       ),
-                                      child: const Icon(
+                                      child: Icon(
                                         Icons.school,
                                         size: 32,
-                                        color: Colors.blue,
+                                        color: isDarkMode ? Colors.blue[300]! : Colors.blue,
                                       ),
                                     ),
                                     const SizedBox(height: 12),
@@ -356,21 +336,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       const SizedBox(height: 30),
 
                       // Enhanced Profile Information Section
-                      Container(
+                      GlassmorphismContainer(
                         margin: const EdgeInsets.symmetric(horizontal: 20),
-                        decoration: BoxDecoration(
-                          color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: isDarkMode 
-                                  ? Colors.black.withOpacity(0.3) 
-                                  : Colors.grey.withOpacity(0.1),
-                              blurRadius: 15,
-                              offset: const Offset(0, 8),
-                            ),
-                          ],
-                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -460,7 +427,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             child: Icon(
               icon,
-              color: isDarkMode ? const Color(0xFF9C27B0) : const Color(0xFF6A1B9A),
+              color: isDarkMode ? Colors.white : const Color(0xFF6A1B9A),
               size: 22,
             ),
           ),

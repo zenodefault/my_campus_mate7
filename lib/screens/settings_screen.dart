@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../widgets/glassmorphism_container.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -59,21 +60,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Theme Settings Section
-            Container(
+            GlassmorphismContainer(
               padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Theme.of(context).brightness == Brightness.dark 
-                    ? const Color(0xFF1E1E1E)
-                    : Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
-                  ),
-                ],
-              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -106,7 +94,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       Switch(
                         value: _isDarkMode,
                         onChanged: _toggleTheme,
-                        activeColor: const Color(0xFF6A1B9A),
+                        activeThumbColor: const Color(0xFF6A1B9A),
                         activeTrackColor: const Color(0xFF6A1B9A).withOpacity(0.3),
                         inactiveThumbColor: Colors.grey[300],
                         inactiveTrackColor: Colors.grey[200],
@@ -141,8 +129,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             color: _isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              color: _isDarkMode 
-                                  ? const Color(0xFF424242) 
+                              color: _isDarkMode
+                                  ? const Color(0xFF424242)
                                   : const Color(0xFFE0E0E0),
                             ),
                           ),
@@ -151,8 +139,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               Container(
                                 height: 40,
                                 decoration: BoxDecoration(
-                                  color: _isDarkMode 
-                                      ? const Color(0xFF2D2D2D) 
+                                  color: _isDarkMode
+                                      ? const Color(0xFF2D2D2D)
                                       : const Color(0xFFEEEEEE),
                                   borderRadius: BorderRadius.circular(5),
                                 ),
@@ -170,8 +158,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               Container(
                                 height: 20,
                                 decoration: BoxDecoration(
-                                  color: _isDarkMode 
-                                      ? const Color(0xFF3D3D3D) 
+                                  color: _isDarkMode
+                                      ? const Color(0xFF3D3D3D)
                                       : const Color(0xFFFAFAFA),
                                   borderRadius: BorderRadius.circular(3),
                                 ),
@@ -189,8 +177,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             color: _isDarkMode ? const Color(0xFF000000) : const Color(0xFF757575),
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              color: _isDarkMode 
-                                  ? const Color(0xFF212121) 
+                              color: _isDarkMode
+                                  ? const Color(0xFF212121)
                                   : const Color(0xFF9E9E9E),
                             ),
                           ),
@@ -199,8 +187,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               Container(
                                 height: 40,
                                 decoration: BoxDecoration(
-                                  color: _isDarkMode 
-                                      ? const Color(0xFF121212) 
+                                  color: _isDarkMode
+                                      ? const Color(0xFF121212)
                                       : const Color(0xFF616161),
                                   borderRadius: BorderRadius.circular(5),
                                 ),
@@ -218,8 +206,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               Container(
                                 height: 20,
                                 decoration: BoxDecoration(
-                                  color: _isDarkMode 
-                                      ? const Color(0xFF212121) 
+                                  color: _isDarkMode
+                                      ? const Color(0xFF212121)
                                       : const Color(0xFF424242),
                                   borderRadius: BorderRadius.circular(3),
                                 ),
@@ -237,21 +225,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: 25),
             
             // Display Settings Section
-            Container(
+            GlassmorphismContainer(
               padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Theme.of(context).brightness == Brightness.dark 
-                    ? const Color(0xFF1E1E1E)
-                    : Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
-                  ),
-                ],
-              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -291,21 +266,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: 25),
             
             // Account Settings Section
-            Container(
+            GlassmorphismContainer(
               padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Theme.of(context).brightness == Brightness.dark 
-                    ? const Color(0xFF1E1E1E)
-                    : Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
-                  ),
-                ],
-              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -345,21 +307,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: 25),
             
             // About Section
-            Container(
+            GlassmorphismContainer(
               padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Theme.of(context).brightness == Brightness.dark 
-                    ? const Color(0xFF1E1E1E)
-                    : Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
-                  ),
-                ],
-              ),
               child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

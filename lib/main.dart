@@ -203,8 +203,8 @@ class _MyAppWrapperState extends State<MyAppWrapper> {
       );
     }
 
-    // Show login screen if not logged in, otherwise show main app
-    return _isLoggedIn ? const MainApp() : const LoginScreen();
+    // Always show main app, skip login screen
+    return const MainApp();
   }
 }
 
@@ -236,28 +236,14 @@ class _MainAppState extends State<MainApp> {
   }
 
   Future<void> _logout() async {
-    try {
-      // Clear all student data
-      await LocalStorageService.clearStudentData();
-      
-      if (mounted) {
-        // Navigate back to login screen
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const LoginScreen(),
-          ),
-        );
-      }
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error during logout: ${e.toString()}'),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
+    // Show message that login is disabled
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Login functionality is currently disabled'),
+          backgroundColor: Colors.orange,
+        ),
+      );
     }
   }
 

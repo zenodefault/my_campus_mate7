@@ -40,6 +40,7 @@ dependencies:
   dio_cookie_manager: ^3.3.0 
   # google_fonts: ^6.1.0  # Add this line
   # flutter_secure_storage: ^5.0.2
+  hugeicons: ^1.0.0
 
 
   # The following adds the Cupertino Icons font to your application.

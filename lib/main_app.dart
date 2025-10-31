@@ -8,8 +8,6 @@ import 'package:my_campus_mate7/screens/notes_screen.dart';
 import 'package:my_campus_mate7/screens/attendance_screen.dart';
 import 'package:my_campus_mate7/screens/developer_info_screen.dart';
 import 'package:my_campus_mate7/screens/settings_screen.dart';
-import 'package:my_campus_mate7/screens/login_screen.dart';
-import '../services/local_storage_service.dart';
 
 class MainApp extends StatefulWidget {
   const MainApp({super.key});
@@ -38,28 +36,14 @@ class _MainAppState extends State<MainApp> {
   }
 
   Future<void> _logout() async {
-    try {
-      // Clear all student data
-      await LocalStorageService.clearStudentData();
-      
-      if (mounted) {
-        // Navigate back to login screen
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const LoginScreen(),
-          ),
-        );
-      }
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error during logout: ${e.toString()}'),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
+    // Show message that login is disabled
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Login functionality is currently disabled'),
+          backgroundColor: Colors.orange,
+        ),
+      );
     }
   }
 
@@ -79,10 +63,7 @@ class _MainAppState extends State<MainApp> {
         centerTitle: true,
         elevation: 0,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: _logout,
-          ),
+          IconButton(icon: const Icon(Icons.logout), onPressed: _logout),
         ],
       ),
       drawer: Drawer(
@@ -95,7 +76,7 @@ class _MainAppState extends State<MainApp> {
                 gradient: LinearGradient(
                   colors: [
                     const Color(0xFF6A1B9A),
-                    const Color(0xFF6A1B9A).withOpacity(0.7),
+                    const Color.fromRGBO(0x6A, 0x1B, 0x9A, 0.7),
                   ],
                 ),
               ),
@@ -118,10 +99,7 @@ class _MainAppState extends State<MainApp> {
                     padding: EdgeInsets.only(left: 16.0, bottom: 16.0),
                     child: Text(
                       'Your Campus Companion',
-                      style: TextStyle(
-                        color: Colors.white70,
-                        fontSize: 14,
-                      ),
+                      style: TextStyle(color: Colors.white70, fontSize: 14),
                     ),
                   ),
                 ],
@@ -144,7 +122,7 @@ class _MainAppState extends State<MainApp> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.note, color: Color(0xFF6A1B9A)),
+              leading: const Icon(Icons.description, color: Color(0xFF6A1B9A)),
               title: const Text('Notes'),
               onTap: () {
                 _onItemTapped(4);
@@ -152,7 +130,7 @@ class _MainAppState extends State<MainApp> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.notifications, color: Color(0xFF6A1B9A)),
+              leading: const Icon(Icons.alarm, color: Color(0xFF6A1B9A)),
               title: const Text('Reminders'),
               onTap: () {
                 _onItemTapped(2);
@@ -160,7 +138,7 @@ class _MainAppState extends State<MainApp> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.newspaper, color: Color(0xFF6A1B9A)),
+              leading: const Icon(Icons.campaign, color: Color(0xFF6A1B9A)),
               title: const Text('Announcements'),
               onTap: () {
                 _onItemTapped(3);
@@ -168,7 +146,10 @@ class _MainAppState extends State<MainApp> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.percent, color: Color(0xFF6A1B9A)),
+              leading: const Icon(
+                Icons.check_circle_outline,
+                color: Color(0xFF6A1B9A),
+              ),
               title: const Text('Attendance'),
               onTap: () {
                 _onItemTapped(5);
@@ -216,16 +197,16 @@ class _MainAppState extends State<MainApp> {
             'Logout',
             style: GoogleFonts.fragmentMono(
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).brightness == Brightness.dark 
-                  ? Colors.white 
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
                   : const Color(0xFF4A148C),
             ),
           ),
           content: Text(
             'Are you sure you want to logout?',
             style: GoogleFonts.fragmentMono(
-              color: Theme.of(context).brightness == Brightness.dark 
-                  ? Colors.grey[400] 
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.grey[400]
                   : Colors.grey[700],
             ),
           ),
@@ -235,8 +216,8 @@ class _MainAppState extends State<MainApp> {
               child: Text(
                 'Cancel',
                 style: GoogleFonts.fragmentMono(
-                  color: Theme.of(context).brightness == Brightness.dark 
-                      ? Colors.grey[400] 
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.grey[400]
                       : Colors.grey,
                 ),
               ),
@@ -249,8 +230,8 @@ class _MainAppState extends State<MainApp> {
               child: Text(
                 'Logout',
                 style: GoogleFonts.fragmentMono(
-                  color: Theme.of(context).brightness == Brightness.dark 
-                      ? Colors.red[300] 
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.red[300]
                       : Colors.red,
                   fontWeight: FontWeight.bold,
                 ),

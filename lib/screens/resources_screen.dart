@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:hugeicons/hugeicons.dart';
 import '../services/rit_notebook_scraper.dart';
+import '../widgets/glassmorphism_container.dart';
 
 class ResourcesScreen extends StatefulWidget {
   const ResourcesScreen({super.key});
@@ -97,7 +99,7 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
         elevation: 0,
         actions: [
           IconButton(
-            icon: const Icon(Icons.refresh),
+            icon: const HugeIcon(icon: HugeIcons.strokeRoundedRefresh, color: Colors.white),
             onPressed: _refreshResources,
           ),
         ],
@@ -154,7 +156,7 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        value: _selectedCategory,
+                        initialValue: _selectedCategory,
                         items: _categories.map((String category) {
                           return DropdownMenuItem<String>(
                             value: category,
@@ -217,12 +219,8 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
   Widget _buildResourceCard(Map<String, dynamic> resource) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     
-    return Card(
+    return GlassmorphismContainer(
       margin: const EdgeInsets.only(bottom: 16),
-      elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
       child: InkWell(
         onTap: () => _openResourceUrl(resource['url']),
         borderRadius: BorderRadius.circular(15),
