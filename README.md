@@ -1,11 +1,10 @@
 # 🎓 MyCampusMate
 
-<<<<<<< HEAD
+
 <div align="center">
 
 ![Anime Visit Counter](https://moe-counter.glitch.me/get/@zenodefault-my_campus_mate7?theme=rule34)
 
-*Kawaii visit counter with anime girls holding the numbers! ✨*
 
 </div>
 
@@ -54,24 +53,6 @@ MyCampusMate is a comprehensive mobile application designed specifically for stu
 - **🔐 Secure Login** - Integration with MS RIT Parents Portal
 - **📱 Cross-Platform** - Available on Android, iOS, Web, Windows, macOS, and Linux
 
-## 🏗️ Architecture
-
-### Frontend (Flutter)
-```
-lib/
-├── main.dart                 # App entry point
-├── models/                   # Data models
-├── screens/                  # UI screens
-├── services/                 # Business logic & API calls
-└── widgets/                  # Reusable UI components
-```
-
-### Backend (FastAPI)
-```
-backend/
-├── main.py                   # FastAPI server
-└── mycampusmate_backend_env/ # Python virtual environment
-```
 
 ## 🚀 Quick Start
 
@@ -163,13 +144,7 @@ MyCampusMate supports both light and dark themes:
 - **Light Theme** - Clean, professional interface with MS RIT's signature purple (#6A1B9A)
 - **Dark Theme** - Modern dark interface perfect for late-night study sessions
 
-## 📱 Screenshots
 
-| Dashboard | Attendance | Timetable | Notes |
-|-----------|------------|-----------|--------|
-| ![Dashboard](assets/images/dashboard.png) | ![Attendance](assets/images/attendance.png) | ![Timetable](assets/images/timetable.png) | ![Notes](assets/images/notes.png) |
-
-*Note: Add actual screenshots in the assets/images/ directory*
 
 ## 🏛️ MS RIT Integration
 
@@ -179,28 +154,9 @@ MyCampusMate supports both light and dark themes:
 - **Student Profile** - Complete academic information
 - **Department News** - Latest updates from your department
 
-### API Endpoints
-```
-GET  /login-and-fetch         # Student authentication & data
-POST /login-and-fetch         # Alternative login method
-```
 
-## 🛠️ Development
 
-### Project Structure
-```
-my_campus_mate7/
-├── android/           # Android-specific code
-├── ios/              # iOS-specific code  
-├── web/              # Web-specific assets
-├── windows/          # Windows-specific code
-├── macos/            # macOS-specific code
-├── linux/            # Linux-specific code
-├── lib/              # Main Flutter code
-├── backend/          # FastAPI backend
-├── assets/           # Images and assets
-└── test/             # Unit and widget tests
-```
+
 
 ### Running Tests
 ```bash
@@ -259,8 +215,6 @@ We welcome contributions from the MS RIT community! Here's how you can help:
 
 ### Get Help
 - **Issues** - Report bugs or request features on [GitHub Issues](https://github.com/zenodefault/my_campus_mate7/issues)
-- **Discussions** - Join community discussions
-- **Email** - Contact the development team
 
 ### Feedback
 We'd love to hear from you! Please share:
@@ -278,7 +232,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### Lead Developer
 **Zeno Default**  
 - GitHub: [@zenodefault](https://github.com/zenodefault)
-- Role: Full-Stack Developer & Project Maintainer
+
 
 ### Contributors
 We appreciate all contributors who help make MyCampusMate better for the MS RIT community.
